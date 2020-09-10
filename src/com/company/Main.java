@@ -3,6 +3,7 @@ package com.company;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Main {
 
@@ -46,6 +47,22 @@ List<Square> list2 = new ArrayList<>(
                 )
 );
         System.out.println(list2.get(1));
-        
+
+        list.stream().filter(item -> item.getArea()>15).forEach(System.out::println);
+        List<String> words = new ArrayList<>();
+        words.add("HELLO");
+        words.add("Alex");
+        words.add("aLEXEY");
+        words.add("word");
+        words.add("Obezyana");
+        words.add("Dir");
+        words.add("Ukraina");
+        words.add("PonadUse");
+//отсикаем слова которие меньше 5            лямбда віражение!!!(item ->item.length()>5)
+List<String> shortList = words.stream().filter(item ->item.length()>5).collect(Collectors.toList());
+
+System.out.println(shortList);
+
+
     }
 }
